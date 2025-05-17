@@ -31,7 +31,7 @@ pip install -r requirements_sglang.txt
 
 ## Data Preparation
 
-We provide a curated [2K corpus](https://huggingface.co/datasets/superboom/r1t1-cot-corpus) that can be used for two purposes:
+We provide a curated [2K corpus](https://github.com/superboom/R1-T1/blob/main/data/corpus.json) that can be used for two purposes:
 
 - Generating CoT-based SFT data for cold-start initialization
 - Preparing training data directly for reinforcement learning
