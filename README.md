@@ -51,20 +51,6 @@ cd data
 python data_prepare.py
 ```
 
-
-## Citation
-
-If you find this project helpful, please cite:
-
-```bibtex
-@article{he2025r1,
-  title={R1-T1: Fully incentivizing translation capability in LLMs via reasoning learning},
-  author={He, Minggui and Liu, Yilun and Tao, Shimin and Luo, Yuanchang and Zeng, Hongyong and Su, Chang and Zhang, Li and Ma, Hongxia and Wei, Daimeng and Meng, Weibin and others},
-  journal={arXiv preprint arXiv:2502.19735},
-  year={2025}
-}
-```
-
 ## Acknowledgements
 Our training parallel corpus comes from the foloowing sources:
 - [Verl](https://github.com/facebookresearch/VERL)
