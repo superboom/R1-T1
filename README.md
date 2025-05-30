@@ -41,7 +41,7 @@ We provide a curated [2K corpus](https://github.com/superboom/R1-T1/blob/main/da
 We utilize an advanced LLM API to construct the cold-start data. You can either:
 
 - Use our **Human-Aligned Chain-of-Thought (CoT) Templates** described in the paper to generate your own data, or  
-- Directly download our prepared CoT-annotated corpus [here](https://huggingface.co/datasets/superboom/r1t1-cot-corpus).
+- Directly download our prepared CoT-annotated corpus [here](https://github.com/superboom/R1-T1/blob/main/data/CoT_data.json).
 
 
 ### Generate RL Training Data
@@ -50,7 +50,7 @@ We utilize an advanced LLM API to construct the cold-start data. You can either:
 cd data
 python preprocess_translation.py \
     --data_path /path/to/data.json \
-    --local_dir ~/data/COT \
+    --local_dir ~/data/COT_RL \
     --train_size 1800 \
     --test_size 200 \
     --template_type qwen-instruct 
