@@ -21,11 +21,9 @@
 from typing import Optional, Tuple
 
 import torch
-from megatron.core import ModelParallelConfig
 from torch import nn
 from transformers import LlamaConfig
-
-from verl.utils.megatron_utils import TransformerConfig, convert_config
+from megatron.core import ModelParallelConfig
 
 from .parallel_attention import ParallelLlamaAttention, ParallelLlamaAttentionRmPad
 from .parallel_mlp import ParallelLlamaMLP
@@ -33,10 +31,9 @@ from .parallel_rmsnorm import ParallelLlamaRMSNorm
 
 
 class ParallelLlamaDecoderLayer(nn.Module):
-    def __init__(self, config: LlamaConfig, megatron_config: ModelParallelConfig, layer_idx: int):
+
+    def __init__(self, config: LlamaConfig, megatron_config: ModelParallelConfig):
         super().__init__()
-        self.config: TransformerConfig = convert_config(config, megatron_config)
-        self.layer_idx = layer_idx
         self.hidden_size = config.hidden_size
         self.self_attn = ParallelLlamaAttention(config=config, megatron_config=megatron_config)
 
@@ -100,10 +97,11 @@ class ParallelLlamaDecoderLayer(nn.Module):
 
 
 class ParallelLlamaDecoderLayerRmPad(nn.Module):
-    def __init__(self, config: LlamaConfig, megatron_config: ModelParallelConfig, layer_idx: int):
+
+    def __init__(self, config: LlamaConfig, megatron_config: ModelParallelConfig):
         super().__init__()
-        self.config: TransformerConfig = convert_config(config, megatron_config)
-        self.layer_idx = layer_idx
+        self.config = config
+        self.megatron_config = megatron_config
         self.hidden_size = config.hidden_size
         self.self_attn = ParallelLlamaAttentionRmPad(config=config, megatron_config=megatron_config)
 
@@ -118,7 +116,7 @@ class ParallelLlamaDecoderLayerRmPad(nn.Module):
         sequence_length: int = None,
         indices: torch.Tensor = None,
         cu_seqlens: int = None,
-        max_seqlen_in_batch: int = None,
+        max_seqlen_in_batch: int = None
     ) -> Tuple[torch.FloatTensor, Optional[Tuple[torch.FloatTensor, torch.FloatTensor]]]:
         residual = hidden_states  # (total_nnz // sp, 1, hidden_size)
 
@@ -127,14 +125,12 @@ class ParallelLlamaDecoderLayerRmPad(nn.Module):
         # Self Attention
         # (total_nnz // sp, 1, hidden_size) -> all-gather (total_nnz, 1, hidden_size)
         # -> col + row -> reduce-scatter -> (total_nnz // sp, 1, hidden_size)
-        hidden_states = self.self_attn(
-            hidden_states=hidden_states,
-            position_ids=position_ids,
-            sequence_length=sequence_length,
-            indices=indices,
-            cu_seqlens=cu_seqlens,
-            max_seqlen_in_batch=max_seqlen_in_batch,
-        )
+        hidden_states = self.self_attn(hidden_states=hidden_states,
+                                       position_ids=position_ids,
+                                       sequence_length=sequence_length,
+                                       indices=indices,
+                                       cu_seqlens=cu_seqlens,
+                                       max_seqlen_in_batch=max_seqlen_in_batch)
 
         hidden_states = residual + hidden_states
 

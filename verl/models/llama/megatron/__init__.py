@@ -13,22 +13,12 @@
 # limitations under the License.
 
 from .modeling_llama_megatron import (
+    # original model with megatron
+    ParallelLlamaModel,
     ParallelLlamaForCausalLM,
     # rmpad with megatron
     ParallelLlamaForCausalLMRmPad,
+    ParallelLlamaForValueRmPad,
     # rmpad with megatron and pipeline parallelism
     ParallelLlamaForCausalLMRmPadPP,
-    ParallelLlamaForValueRmPad,
-    ParallelLlamaForValueRmPadPP,
-    # original model with megatron
-    ParallelLlamaModel,
-)
-
-__all__ = [
-    "ParallelLlamaForCausalLM",
-    "ParallelLlamaForCausalLMRmPad",
-    "ParallelLlamaForCausalLMRmPadPP",
-    "ParallelLlamaForValueRmPad",
-    "ParallelLlamaForValueRmPadPP",
-    "ParallelLlamaModel",
-]
+    ParallelLlamaForValueRmPadPP)

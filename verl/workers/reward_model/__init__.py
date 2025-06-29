@@ -13,5 +13,3 @@
 # limitations under the License.
 
 from .base import BasePPORewardModel
-
-__all__ = ["BasePPORewardModel"]

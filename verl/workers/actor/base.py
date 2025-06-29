@@ -14,18 +14,17 @@
 """
 The base class for Actor
 """
-
 from abc import ABC, abstractmethod
-from typing import Dict
-
-import torch
+from typing import Iterable, Dict
 
 from verl import DataProto
+import torch
 
-__all__ = ["BasePPOActor"]
+__all__ = ['BasePPOActor']
 
 
 class BasePPOActor(ABC):
+
     def __init__(self, config):
         """The base class for PPO actor
 

@@ -24,7 +24,9 @@ from vllm.compilation.levels import CompilationLevel
 from vllm.config import (
     CacheConfig,
     DeviceConfig,
+    LoadConfig,
     LoRAConfig,
+    ModelConfig,
     ObservabilityConfig,
     ParallelConfig,
     PromptAdapterConfig,
@@ -56,6 +58,7 @@ class BatchType(IntEnum):
 
 
 class ModelRunner(ModelRunner):
+
     def __init__(
         self,
         model: Union[nn.Module, Dict],  # [verl] model itself or its parameter dict
@@ -74,6 +77,7 @@ class ModelRunner(ModelRunner):
         input_registry: InputRegistry = INPUT_REGISTRY,
         mm_registry: MultiModalRegistry = MULTIMODAL_REGISTRY,
     ):
+
         super().__init__(
             model_config,
             parallel_config,
@@ -114,10 +118,9 @@ class ModelRunner(ModelRunner):
         if self.lora_config:
             assert supports_lora(self.model), f"{self.model.__class__.__name__} does not support LoRA yet."
 
-            # if supports_multimodal(self.model):
-            #     logger.warning(
-            #         "Regarding multimodal models, vLLM currently only supports adding LoRA to language model."
-            #     )
+            if supports_multimodal(self.model):
+                logger.warning("Regarding multimodal models, vLLM currently "
+                               "only supports adding LoRA to language model.")
             # It's necessary to distinguish between the max_position_embeddings
             # of VLMs and LLMs.
             if hasattr(self.model.config, "max_position_embeddings"):
@@ -153,7 +156,9 @@ class ModelRunner(ModelRunner):
             if self.model_config.quantization_param_path is not None:
                 if callable(getattr(self.model, "load_kv_cache_scales", None)):
                     warnings.warn(
-                        "Loading kv cache scaling factor from JSON is deprecated and will be removed. Please include kv cache scaling factors in the model checkpoint.",
+                        "Loading kv cache scaling factor from JSON is "
+                        "deprecated and will be removed. Please include "
+                        "kv cache scaling factors in the model checkpoint.",
                         FutureWarning,
                         stacklevel=2,
                     )
@@ -161,11 +166,14 @@ class ModelRunner(ModelRunner):
                     logger.info("Loaded KV cache scaling factors from %s", self.model_config.quantization_param_path)
                 else:
                     raise RuntimeError(
-                        "Using FP8 KV cache and scaling factors provided but model %s does not support loading scaling factors.",
+                        "Using FP8 KV cache and scaling factors provided but "
+                        "model %s does not support loading scaling factors.",
                         self.model.__class__,
                     )
             else:
-                logger.warning("Using FP8 KV cache but no scaling factors provided. Defaulting to scaling factors of 1.0. This may lead to less accurate results!")
+                logger.warning("Using FP8 KV cache but no scaling factors "
+                               "provided. Defaulting to scaling factors of 1.0. "
+                               "This may lead to less accurate results!")
 
         if envs.VLLM_TORCH_COMPILE_LEVEL == CompilationLevel.DYNAMO_AS_IS and supports_dynamo():
             from vllm.plugins import get_torch_compile_backend
