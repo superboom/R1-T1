@@ -97,14 +97,13 @@ Replace $MODEL_PATH with one of the following options:
 
 - R1-T1-ZERO — if you want to start from the original Qwen-7B-Instruct model without post CoT sft
 
-## Evaluiation
+## Evaluation
 
 We provide an evaluation script to test multilingual translation models on:
 
 - **FLORES Benchmark** — General multilingual translation across 21 languages.
 - **Domain-Specific Benchmarks** — Challenging translations involving literature, Common sense etc.
 
----
 
 ### Step 1: Prepare Input Data
 
@@ -118,8 +117,6 @@ Create the following directories and place evaluation files inside:
 - For hard tests, include files like `commonmt_la.zh`, `literature.en`, etc.
 
 You can customize the input format according to your own test corpora if needed.
-
----
 
 ### Step 2: Run Evaluation
 
