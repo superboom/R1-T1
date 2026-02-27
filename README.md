@@ -55,7 +55,7 @@ Generate your own RL data from a custom parallel corpus using the preprocessing 
 ```bash
 cd data
 python data_prepare.py \
-    --data_path /path/to/corpus.json \
+    --data_path /path/to/filtered_corpus.json \
     --local_dir ~/data/COT_RL \
     --train_size 1783 \
     --test_size 198 \
