@@ -41,7 +41,7 @@ We provide a curated [2K corpus](https://github.com/superboom/R1-T1/blob/main/da
 We utilize an advanced LLM API to construct the cold-start data. You can either:
 
 - Use our **Human-Aligned Chain-of-Thought (CoT) Templates** described in the paper to generate your own data, or  
-- Directly download our prepared CoT-annotated corpus [here](https://github.com/superboom/R1-T1/blob/main/data/CoT_data.json).
+- Directly download our prepared CoT-annotated corpus [here](https://github.com/superboom/R1-T1/blob/main/data/filtered_CoT_fata.json).
 
 
 ### Generate RL Training Data
