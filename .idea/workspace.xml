@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dc9f372-eb15-436d-816a-41117bce3da9" name="Changes" comment="add data preprocess code" />
+    <list default="true" id="9dc9f372-eb15-436d-816a-41117bce3da9" name="Changes" comment="[data update] update the the train data used for R1-T1 RL Reasoning">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,31 +27,39 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="f714e77c-106a-4742-877d-c30518b01949" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/data/CoT_data.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2xai7pHjZ3EZmPZRGGtQkkzHtpv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\R1-T1\data\assets" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +68,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748182422425</updated>
-      <workItem from="1748182431008" duration="3032000" />
+      <workItem from="1748182431008" duration="5349000" />
+      <workItem from="1751230874762" duration="2349000" />
+      <workItem from="1772168365787" duration="513000" />
+      <workItem from="1772168902133" duration="652000" />
+      <workItem from="1772170200213" duration="5260000" />
     </task>
     <task id="LOCAL-00001" summary="add data preprocess code">
       <option name="closed" value="true" />
@@ -123,7 +138,63 @@
       <option name="project" value="LOCAL" />
       <updated>1748193311530</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add data preprocess code">
+      <option name="closed" value="true" />
+      <created>1748193376836</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748193376836</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update CoT cold start data">
+      <option name="closed" value="true" />
+      <created>1748636034968</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748636034968</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[bugfix] update the training &amp; evaluation code for R1-T1, and corresponing readme">
+      <option name="closed" value="true" />
+      <created>1751233102474</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1751233102474</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[bugfix] update the training &amp; evaluation code for R1-T1, and corresponing readme">
+      <option name="closed" value="true" />
+      <created>1751233144383</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1751233144383</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[data update] update the the CoT data used for R1-T1 cold start">
+      <option name="closed" value="true" />
+      <created>1772169987760</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1772169987760</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[data update] update the the train data used for R1-T1 RL Reasoning">
+      <option name="closed" value="true" />
+      <created>1772197407035</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1772197407035</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[data update] update the the train data used for R1-T1 RL Reasoning">
+      <option name="closed" value="true" />
+      <created>1772197587737</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1772197587737</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,7 +205,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -142,6 +225,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add data preprocess code" />
-    <option name="LAST_COMMIT_MESSAGE" value="add data preprocess code" />
+    <MESSAGE value="update CoT cold start data" />
+    <MESSAGE value="[bugfix] update the training &amp; evaluation code for R1-T1, and corresponing readme" />
+    <MESSAGE value="[data update] update the the CoT data used for R1-T1 cold start" />
+    <MESSAGE value="[data update] update the the train data used for R1-T1 RL Reasoning" />
+    <option name="LAST_COMMIT_MESSAGE" value="[data update] update the the train data used for R1-T1 RL Reasoning" />
   </component>
 </project>

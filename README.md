@@ -4,6 +4,22 @@
 
 **R1-T1** is a reasoning-enhanced machine translation framework built upon the [VERL](https://github.com/facebookresearch/VERL) repository. This project aims to fully incentivize large language models (LLMs) to perform high-quality translations through explicit reasoning learning, leveraging Chain-of-Thought (CoT) style supervision and customized reward modeling.
 
+---
+
+## Framework Overview
+
+The figure below presents the overall R1-T1 pipeline, including:
+
+1. abstraction of expert translation strategies into CoT templates,  
+2. construction of reasoning-augmented MT data,  
+3. cold-start reasoning knowledge injection via SFT, and  
+4. self-evolving translation reasoning via RL.
+
+![R1-T1 Framework Overview](assets/framework.png)
+
+---
+
+
 ## Features
 
 - **General-Purpose Reasoning-Based Machine Translation**  
@@ -17,6 +33,23 @@
 
 - **Enhanced Translation Performance on Low-Resource Languages**  
   Experimental results indicate that R1-T1 achieves steady translation performance improvements in 10+ languages and 40+ translation directions on the Flores-101 test set, 4 domain-specific transaltion tasks. This demonstrates the model's generalization ability on  broader MT scenarios.
+
+## Human-Aligned CoT Templates
+
+To bridge human translation expertise and LLM reasoning learning, R1-T1 formalizes six expert-curated translation reasoning templates:
+
+- **Hierarchical Translation** — translate by first identifying core sentence elements and then refining the full sentence.
+- **Translation Explanation** — explicitly explain lexical and phrasal translation decisions.
+- **Structural Transformation** — focus on syntactic restructuring between source and target languages.
+- **Triangulating Translation** — translate via an intermediate representation or pivot-style decomposition.
+- **Context-aware Translation** — incorporate discourse context, tone, and prior utterances.
+- **Back Translation** — validate translation fidelity by comparing forward and backward translations.
+
+These templates are not intended as rigid decoding rules. Instead, they serve as **structured reasoning priors** for instantiating high-quality translation CoT trajectories during the cold-start data construction stage.
+
+![Human-Aligned CoT Templates](assets/cot_templates.png)
+
+---
 
 
 ## Installation
